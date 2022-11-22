@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<script src="https://kit.fontawesome.com/6951d4c90c.js" crossorigin="anonymous"></script>
+
+
+
+
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>Robô com Arduino</title>
+
+<style>
+
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+
+body {font-size:16px;}
+
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:1;cursor:pointer}
+
+.w3-half img:hover{opacity:1}
+
+</style>
+
+    
+
+</head>
+
+<body>
+
+    <nav class="w3-sidebar w3-indigo w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Menu</a>
+
+        <div class="w3-container">
+
+          <h3 class="w3-padding-64"><b>Projeto com Arduino</b></h3>
+
+        </div>
+
+        <div class="w3-bar-block">
+
+          <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Tela Inicial</a> 
+
+          <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Fotos do Projeto</a>
+          
+      
+      
+      
+         
+        <a href="#texto" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Arduino</a>
+          
+      
+      
+      
+          
+       
+       
+       
+           <a href="#video" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Video</a>
+       
+       
+       
+       
+       
+       
+          
+               
+
+          <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Materiais</a> 
+
+          <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contato</a>
+
+        </div>
+      </nav>
+
+      
+
+      <!-- Top menu on small screens -->
+
+      <header class="w3-container w3-top w3-hide-large w3-indigo w3-xlarge w3-padding">
+
+        <a href="javascript:void(0)" class="w3-button w3-indigo w3-margin-right" onclick="w3_open()">☰</a>
+
+        <span>Robô com Arduino</span>
+
+      </header>
+
+      
+
+      <!-- Overlay effect when opening sidebar on small screens -->
+
+      <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+      
+
+      <!-- !PAGE CONTENT! -->
+
+      <div class="w3-main" style="margin-left:350px;margin-right:30px">
+
+      
+
+        <!-- Header -->
+
+        <div class="w3-container" style="margin-top:50px" id="showcase">
+
+          <h1 class="w3-jumbo w3-monospace w3-indigo"><b>Crie seu robô com arduino!</b></h1>
+
+          <h1 class="w3-xxxlarge w3-text-blue w3-monospace"><b>Fotos do Projeto</b></h1>
+
+          <hr style="width:50px;border:5px solid rgb(57, 9, 231)" class="w3-round">
+
+        </div>
+
+        
+
+        <!-- Photo grid (modal) -->
+
+        <div class="w3-row-padding">
+
+          <div class="w3-half">
+
+            <img src="https://i.pinimg.com/originals/39/ab/4c/39ab4cbeae5cd71bacb4caf57c5787c8.gif" style="width:100%" onclick="onClick(this)">
+
+            <img src="https://i.pinimg.com/564x/91/0f/a0/910fa03b4a8a45b592926275e89a7cdd.jpg" style="width:100%" onclick="onClick(this)">
+
+            <img src="https://i.pinimg.com/564x/46/e9/73/46e9735260f5aa911379145ffc0119c5.jpg" style="width:100%" onclick="onClick(this)">
+
+          </div>
+
+      
+
+          <div class="w3-half">
+
+            <img src="https://i.pinimg.com/564x/c3/a9/28/c3a928c5800a43ebfbe1610f385cd37b.jpg" style="width:100%" onclick="onClick(this)">
+
+            <img src="https://i.pinimg.com/564x/c2/e1/f8/c2e1f81902e7d94cb1eeb357372c07ab.jpg" style="width:100%" onclick="onClick(this)">
+
+            <img src="https://i.pinimg.com/originals/cd/99/16/cd99168eacd2cef846e7cc2e6086199d.gif" style="width:100%" onclick="onClick(this)">
+
+          </div>
+
+        </div>
+
+      
+
+        <!-- Modal for full size images on click-->
+
+        <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+
+          <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+
+          <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+
+            <img id="img01" class="w3-image">
+
+            <p id="caption"></p>
+
+          </div>
+
+        </div>
+        
+        
+        
+        
+        
+        <div class="w3-container" id="texto" style="margin-top:75px">
+
+          <h1 class="w3-xxxlarge w3-text-blue w3-monospace"><b>Arduino</b></h1>
+        
+        
+     <hr style="width:50px;border:5px solid rgb(57, 9, 231)" class="w3-round">
+     
+    <p>Arduino é uma placa eletrônica de código aberto baseada em hardware e software descomplicados. A plataforma Arduino faz a leitura de entradas e as transforma em saídas. Pode receber instruções usando uma linguagem de programação e um software apropriados.
+</p>
+Basicamente, é formado por um controlador, entrada USB ou serial, e pinos digitais e analógicos de entrada e saída. Não tem conexão de rede, mas pode ser combinado a outros Arduinos, gerando extensões (shields) ou ser conectado a um computador hospedeiro.
+<p>
+Entre suas vantagens, seu custo é baixo, em comparação com outras plataformas de microcontroladores.
+</p>
+Aquí você verá qual foi o mateial usado na construção do nosso pequeno robô autônomo!
+             
+        </div>  
+        
+         
+        <div class="w3-container" id="video" style="margin-top:75px">
+
+          <h1 class="w3-xxxlarge w3-text-blue w3-monospace"><b>Video</b></h1>
+              
+     <hr style="width:50px;border:5px solid rgb(57, 9, 231)" class="w3-round">
+        
+       
+       <p>Aqui você encontra o video do nosso robô funcionando. O robô não bate em nada na frente dele por usar um sensor Ultrassônico colado no micro servo, veja abaixo
+       <i class="fa fa-solid fa-turn-down fa-fw"></i>
+</p>
+       
+       
+      
+        <iframe width="330" height="585" src="https://www.youtube.com/embed/IIC3i-_pI98" title="Meu robô com arduino" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     
+        
+
+        <!-- Materiais -->
+
+        <div class="w3-container" id="services" style="margin-top:75px">
+
+          <h1 class="w3-xxxlarge w3-text-blue w3-monospace"><b>Materiais</b></h1>
+
+          <hr style="width:50px;border:5px solid rgb(57, 9, 231)" class="w3-round">
+          
+          
+<ul>
+  <li>Placa Arduino Uno + Cabo de conexão</li>
+          <img class="w3-half" src="https://www.usinainfo.com.br/1012961-thickbox_default/placa-uno-r3-arduino-cabo-usb.jpg">
+          <li>Placa Shield de expansão L293d Driver Ponte H Para Motor  </li>
+          <img class="w3-half" src="https://www.colombianizate.com.co/wp-content/uploads/2019/09/Motor-shield-drive-2.jpg">
+          <li>Sensor Ultrassônico Hc-sr04</li>
+          <img class="w3-half" src="https://blogmasterwalkershop.com.br/wp-content/uploads/2018/06/img00_usar_com_arduino_sensor_ultrasonico_hc-sr04_distancia_uno_mega_leonardo_nano-Copia.jpg">
+          <li>Micro Servo Motor 9g Sg90</li>
+          <img class="w3-half" src="https://www.vidadesilicio.com.br/media/catalog/product/cache/2/thumbnail/450x450/9df78eab33525d08d6e5fb8d27136e95/8/5/850xn_3__1.jpg">
+          <li>Kit  Chassi 2 Rodas 2wd com suporte para quatro pilhas AA</li>
+          <img class="w3-half" src="https://www.filipeflop.com/wp-content/uploads/2017/07/7MS10.jpg">
+          <li>Cabo Jumper</li>
+          <img class="w3-half" src="https://www.filipeflop.com/wp-content/uploads/2017/07/2CB22-1.jpg">
+          </ul>
+
+        </div>
+
+        
+
+        
+
+        <!-- Contact -->
+
+        <div class="w3-container" id="contact" style="margin-top:75px">
+
+          <h1 class="w3-xxxlarge w3-text-blue w3-monospace"><b>Contato</b></h1>
+
+          <hr style="width:50px;border:5px solid rgb(57, 9, 231)" class="w3-round">
+
+          <p>Aqui você encontra meus contatos como número de telefone e e-mail!</p>
+
+          
+
+          <div class="w3-section">
+
+            <p>
+
+            <i class="fa fa-map-marker fa-fw w3-text-orange w3-xxlarge w3-margin-right"></i> Piracicaba/SP, Brasil</p>
+
+
+    <p>
+    <a href"  https://web.whatsapp.com/send?phone=5519981066931">
+          <i class="fa fa-whatsapp fa-fw w3-text-green w3-xxlarge w3-margin-right"></i> Whatsapp: (19) 981066931
+     </a>  
+  </p>
+
+  
+    <p>
+        <i class="fa fa-envelope fa-fw w3-text-purple w3-xxlarge w3-margin-right"> </i> Email: Mizael180@hotmail.com</p>
+
+            </div>
+
+
+
+
+
+      
+
+      <!-- End page content -->
+
+      </div>
+
+      
+
+      
+
+      <script>
+
+      // Script to open and close sidebar
+
+      function w3_open() {
+
+        document.getElementById("mySidebar").style.display = "block";
+
+        document.getElementById("myOverlay").style.display = "block";
+
+      }
+
+       
+
+      function w3_close() {
+
+        document.getElementById("mySidebar").style.display = "none";
+
+        document.getElementById("myOverlay").style.display = "none";
+
+      }
+
+      
+
+      // Modal Image Gallery
+
+      function onClick(element) {
+
+        document.getElementById("img01").src = element.src;
+
+        document.getElementById("modal01").style.display = "block";
+
+        var captionText = document.getElementById("caption");
+
+        captionText.innerHTML = element.alt;
+
+      }
+
+      </script>
+
+      
+
+      </body>
+
+      </html>
+
+      
+
+</body>
+
+</html>
